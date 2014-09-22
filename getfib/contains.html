@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+
+<head>
+<title>Fibonacci numbers</title>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<meta name="description" content="Getting fibonacci numbers with various endings endings">
+<meta name="viewport" content="width=800, initial-scale=0.5">
+<link rel="stylesheet" type="text/css" href="styles.css">
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-52254492-1', 'michalpaszkiewicz.co.uk');
+  ga('send', 'pageview');
+
+</script>
+</head>
+<body>
+  
+  <div class="main-container">
+  <div id="panel1" class="panel">
+    <div class="panel-box">
+      <h1>Fibonacci numbers!</h1>
+    </div>
+  </div>
+
+  <div id="panel2" class="panel">
+    <div class="panel-box">
+		<h2>Get Fibonacci number containing:</h2>
+		<input id="ending" type="text"/>
+		<div class="nums">
+			n = <div id="currentNumber" class="num">1</div></br>
+			f(n) = <div id="currentVal" class="num">1</div>
+		</div>
+		<button onclick="clearScore();">Clear</button>
+		<button onclick="getNext10000FibsUI('contains');">Test next 10000</button>
+    </div>
+  </div>
+  
+    <div class="push"></div>
+  </div>
+<div class="footer">
+  <div class="panel-box">
+              <a href="http://www.michalpaszkiewicz.co.uk">Home</a>
+          </div>
+  </div>
+  <script>
+    console.log("%c" + "A website made by Michal Paszkiewicz", "color: aliceBlue; text-shadow: black 1px 1px 4px; font-size: 40px;")
+     
+</script>
+<script src="script.js"></script>
+</body>
+
+</html>
