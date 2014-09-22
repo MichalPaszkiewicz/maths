@@ -16,6 +16,7 @@ function getNextFibUI()
 	var nextVal = getNextFib();
 	$("#currentNumber").text( currentNumber );
 	$("#currentVal").text( nextVal );
+	window.scrollTo(0, 0);
 }
 
 function clearScore()
@@ -31,6 +32,7 @@ function updateUI()
 {
 	$("#currentNumber").text( currentNumber );
 	$("#currentVal").text( currentFibonacci );
+	window.scrollTo(0, 0);
 }
 
 String.prototype.endsWith = function(suffix) {
