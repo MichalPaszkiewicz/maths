@@ -96,8 +96,8 @@ String.prototype.add = function(number){
 
 function correctString(type, aimString)
 {
-	if(type = "ends"){ return (currentFibonacci).endsWith( aimString ); }
-	else if(type = "contains"){ return (currentFibonacci.indexOf(aimString) == 1 );}
+	if(type == "ends"){ return (currentFibonacci).endsWith( aimString ); }
+	else if(type == "contains"){ return (currentFibonacci.indexOf(aimString) == 1 );}
 	else{
 		return false;
 	}
