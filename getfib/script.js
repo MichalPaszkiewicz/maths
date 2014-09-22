@@ -107,7 +107,7 @@ function correctString(type, aimString)
 function getNext10000FibsUI(type)
 {
 	endingString = $("#ending").val();
-	for(var i = 0; i < 9998 ; i ++)
+	for(var i = 0; i < 9999 ; i ++)
 	{
 		getNextFib();
 		if( correctString(type, endingString) ){
@@ -121,7 +121,7 @@ function getNext10000FibsUI(type)
 function getNextHundredThousandFibsUI(type)
 {
 	endingString = $("#ending").val();
-	for(var i = 0; i < 99998 ; i ++)
+	for(var i = 0; i < 99999 ; i ++)
 	{
 		getNextFib();
 		if( correctString(type, endingString) ){
