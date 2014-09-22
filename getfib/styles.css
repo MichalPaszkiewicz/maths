@@ -286,4 +286,5 @@ img[src*="http://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png
 .num
 {
   display: inline-block;
+  word-break: break-all;
 }
