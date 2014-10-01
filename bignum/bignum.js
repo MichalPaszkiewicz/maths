@@ -77,12 +77,12 @@ number.prototype.smallerThan( otherNumber , inclusive)
 	return otherNumber.biggerThan(this, inclusive);
 }
 
-number.prototype.biggerThanOrEqual( otherNumber )
+number.prototype.biggerThanOrEqualTo( otherNumber )
 {
 	return this.biggerThan( otherNumber, true );
 }
 
-number.prototype.smallerThanOrEqual( otherNumber )
+number.prototype.smallerThanOrEqualTo( otherNumber )
 {
 	return this.smallerThan( otherNumber, true );
 }
