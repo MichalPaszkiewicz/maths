@@ -152,6 +152,9 @@ number.prototype.minus = function( otherNumber )
 	var carried = 0;
 	var finalString = "";
 	
+	var tempThis = "0" + this.value;
+	var tempOtherNumber = "0" + otherNumber.value;
+	
 	var positive = this.biggerThan(otherNumber);
 	
 	if(positive)
