@@ -163,7 +163,7 @@ number.prototype.minus = function( otherNumber )
 		var paddingString = getPaddingString(Math.abs(padding));
 		tempOtherNumber = paddingString + tempOtherNumber;
 		
-		for(var i = Math.min(thisLastDigit, thatLastDigit) + Math.abs(padding) -1; i > -1; i--)
+		for(var i = Math.min(thisLastDigit, thatLastDigit) + Math.abs(padding); i > -1; i--)
 		{
 			var newNum = tempThis.charCodeAt(i) - tempOtherNumber.charCodeAt(i) - carried;
 			if(newNum < 0 )
