@@ -161,11 +161,11 @@ number.prototype.minus = function( otherNumber )
 	{
 		var padding = thisLastDigit - thatLastDigit;
 		var paddingString = getPaddingString(Math.abs(padding));
-		otherNumber = paddingString + otherNumber;
+		tempOtherNumber = paddingString + tempOtherNumber;
 		
 		for(var i = Math.min(thisLastDigit, thatLastDigit) + Math.abs(padding) -1; i > -1; i--)
 		{
-			var newNum = tempThis.charCodeAt(i) - otherNumber.value.charCodeAt(i) - carried - 96;
+			var newNum = tempThis.charCodeAt(i) - tempOtherNumber.charCodeAt(i) - carried - 96;
 			if(newNum < 0 )
 			{
 				carried = 1;
