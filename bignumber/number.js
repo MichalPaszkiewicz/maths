@@ -178,7 +178,7 @@ number.prototype.minus = function( otherNumber )
 			
 			finalString = newNum + finalString + "";
 			
-			if(finalString[0] == "0"){ finalString = finalString.substr(1); }
+			if(finalString.length > 1 && finalString[0] == "0"){ finalString = finalString.substr(1); }
 		
 			return new number( true, finalString );
 		}
