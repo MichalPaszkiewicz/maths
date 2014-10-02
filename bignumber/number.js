@@ -66,7 +66,7 @@ number.prototype.biggerThan = function( otherNumber, inclusive )
 				}
 			}
 			
-			if( inclusive == undefined ||){ return false; }
+			if( inclusive == undefined || inclusive == false ){ return false; }
 			if( inclusive == true ){ return true; }
 		}
 	}
