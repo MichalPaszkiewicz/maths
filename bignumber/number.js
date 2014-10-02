@@ -154,41 +154,37 @@ number.prototype.minus = function( otherNumber )
 	
 	var positive = this.biggerThan(otherNumber);
 	
-	var tempThis = "0" + this.value;
-	otherNumber = "0" + otherNumber.value;
-	
-	var padding = thisLastDigit - thatLastDigit;
-	
-	var paddingString = getPaddingString(Math.abs(padding));
-	
-	if(padding > 0)
+	if(positive)
 	{
+		var padding = thisLastDigit - thatLastDigit;
+		var paddingString = getPaddingString(Math.abs(padding));
 		otherNumber = paddingString + otherNumber;
+		
+		for(var i = Math.min(thisLastDigit, thatLastDigit) + Math.abs(padding) -1; i > -1; i--)
+		{
+			var newNum = tempThis.charCodeAt(i) - otherNumber.value.charCodeAt(i) - carried - 96;
+			if(newNum < 0 )
+			{
+				carried = 1;
+				newNum = (newNum + 10) % 10;
+			}
+			else
+			{
+				carried = 0;
+			}
+			
+			finalString = newNum + finalString + "";
+			
+			if(finalString[0] == "0"){ finalString = finalString.substr(1); }
+		
+			return new number( true, finalString );
+		}
 	}
 	else
 	{
-		tempThis = paddingString + tempThis;
+		var correctValue = otherNumber.minus(this).value;
+		return new number( false, correctValue );
 	}
-	
-	for(var i = Math.min(thisLastDigit, thatLastDigit) + Math.abs(padding); i > -1; i--)
-	{
-		var newNum = tempThis.charCodeAt(i) + otherNumber.value.charCodeAt(i) + carried - 96;
-		if(newNum >= 10)
-		{
-			carried = ( newNum - (newNum % 10) ) / 10;
-			newNum = newNum % 10;
-		}
-		else
-		{
-			carried = 0;
-		}
-		
-		finalString = newNum + finalString + "";
-	}
-	
-	if(finalString[0] == "0"){ finalString = finalString.substr(1); }
-	
-	return new number( true, finalString );
 }
 
 //note: note implemented. Use newton-raphson division algorithm?
