@@ -155,7 +155,7 @@ number.prototype.minus = function( otherNumber )
 	var tempThis = "0" + this.value;
 	var tempOtherNumber = "0" + otherNumber.value;
 	
-	var positive = this.biggerThan(otherNumber);
+	var positive = this.biggerThan(otherNumber, true);
 	
 	if(positive)
 	{
