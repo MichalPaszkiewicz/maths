@@ -32,7 +32,7 @@ function number( positive, value )
 }
 
 //note: does not handle hex.
-number.prototype.biggerThan( otherNumber, inclusive )
+number.prototype.biggerThan = function( otherNumber, inclusive )
 {
 	if( this.positive && !otherNumber.positive ){ return true; }
 	else if( !this.positive && otherNumber.positive ){ return false; }
@@ -72,23 +72,23 @@ number.prototype.biggerThan( otherNumber, inclusive )
 	}
 }
 
-number.prototype.smallerThan( otherNumber , inclusive)
+number.prototype.smallerThan = function( otherNumber , inclusive)
 {
 	return otherNumber.biggerThan(this, inclusive);
 }
 
-number.prototype.biggerThanOrEqualTo( otherNumber )
+number.prototype.biggerThanOrEqualTo = function( otherNumber )
 {
 	return this.biggerThan( otherNumber, true );
 }
 
-number.prototype.smallerThanOrEqualTo( otherNumber )
+number.prototype.smallerThanOrEqualTo = function( otherNumber )
 {
 	return this.smallerThan( otherNumber, true );
 }
 
 //note: only works for positive numbers for now.
-number.prototype.plus( otherNumber )
+number.prototype.plus = function( otherNumber )
 {
 	var thisLastDigit = this.value.length;
 	var thatLastDigit = otherNumber.value.length;
@@ -135,7 +135,7 @@ number.prototype.plus( otherNumber )
 //todo: do this next
 //note: only works for positive numbers for now.
 //lies. This is not yet done.
-number.prototype.minus( otherNumber )
+number.prototype.minus = function( otherNumber )
 {
 	var thisLastDigit = this.value.length;
 	var thatLastDigit = otherNumber.value.length;
@@ -182,7 +182,7 @@ number.prototype.minus( otherNumber )
 }
 
 //note: note implemented. Use newton-raphson division algorithm?
-number.prototype.divideBy(divisor)
+number.prototype.divideBy = function(divisor)
 {
 	if(divisor.value == "0")
 	{
@@ -192,7 +192,7 @@ number.prototype.divideBy(divisor)
 	return { quotient: this, remainder: 5 };
 }
 
-number.prototype.getHex()
+number.prototype.getHex = function()
 {
 	var hexString = "";
 	var quotient = new number(this.positive, this.value);
