@@ -87,6 +87,16 @@ number.prototype.smallerThanOrEqualTo = function( otherNumber )
 	return this.smallerThan( otherNumber, true );
 }
 
+function getPaddingString(length)
+{
+	var string = "";
+	for(var i = 0; i < length; i++)
+	{
+		string += "0";
+	}
+	return string;
+}
+
 //note: only works for positive numbers for now.
 number.prototype.plus = function( otherNumber )
 {
