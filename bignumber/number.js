@@ -106,7 +106,7 @@ number.prototype.plus = function( otherNumber )
 	var finalString = "";
 	
 	var tempThis = "0" + this.value;
-	otherNumber = "0" + otherNumber.value;
+	var tempOtherNumber = "0" + otherNumber.value;
 	
 	var padding = thisLastDigit - thatLastDigit;
 	
@@ -114,7 +114,7 @@ number.prototype.plus = function( otherNumber )
 	
 	if(padding > 0)
 	{
-		otherNumber = paddingString + otherNumber;
+		tempOtherNumber = paddingString + tempOtherNumber;
 	}
 	else
 	{
@@ -123,7 +123,7 @@ number.prototype.plus = function( otherNumber )
 	
 	for(var i = Math.min(thisLastDigit, thatLastDigit) + Math.abs(padding); i > -1; i--)
 	{
-		var newNum = tempThis.charCodeAt(i) + otherNumber.value.charCodeAt(i) + carried - 96;
+		var newNum = tempThis.charCodeAt(i) + tempOtherNumber.charCodeAt(i) + carried - 96;
 		if(newNum >= 10)
 		{
 			carried = ( newNum - (newNum % 10) ) / 10;
