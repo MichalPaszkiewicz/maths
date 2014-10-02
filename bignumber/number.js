@@ -50,7 +50,7 @@ number.prototype.biggerThan = function( otherNumber, inclusive )
 		}
 		else if( this.value.length < otherNumber.value.length )
 		{
-			return true;
+			return false;
 		}
 		else
 		{
