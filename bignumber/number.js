@@ -165,7 +165,7 @@ number.prototype.minus = function( otherNumber )
 		
 		for(var i = Math.min(thisLastDigit, thatLastDigit) + Math.abs(padding) -1; i > -1; i--)
 		{
-			var newNum = tempThis.charCodeAt(i) - tempOtherNumber.charCodeAt(i) - carried - 96;
+			var newNum = tempThis.charCodeAt(i) - tempOtherNumber.charCodeAt(i) - carried;
 			if(newNum < 0 )
 			{
 				carried = 1;
