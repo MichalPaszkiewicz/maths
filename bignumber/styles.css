@@ -288,3 +288,8 @@ img[src*="http://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png
   display: inline-block;
   word-break: break-all;
 }
+
+#result
+{
+  word-break: break-all;
+}
