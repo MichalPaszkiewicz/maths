@@ -19,9 +19,16 @@ function getRelevantWords(word)
 	return relevantWords;
 }
 
-function optionString(item)
+function optionString(item, classText)
 {
-	return "<div class='ac-option' value='" + item + "'>" + item + "</div>";
+	var selectedString = "";
+	
+	if(classText != null && classText != undefined)
+	{
+		selectedString = classText;
+	}
+	
+	return "<div class='ac-option " + selectedString + "' value='" + item + "'>" + item + "</div>";
 }
 
 function fullOptionString(items)
@@ -30,7 +37,8 @@ function fullOptionString(items)
 	
 	for(var i = 0; i < items.length; i++)
 	{
-		result += optionString(items[i]);
+		if(i == 0){ result += optionString(items[i], selected) };
+		else{	result += optionString(items[i]); }
 	}
 	return result;
 }
@@ -77,6 +85,6 @@ $('textarea').on( 'keydown', function( e ) {
     	e.preventDefault();
         console.log( e.target.href );
         
-        replaceText($($(".ac-option")[0]).text());
+        replaceText($(".ac-option.selected").text());
     }
 } );
