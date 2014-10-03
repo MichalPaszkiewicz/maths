@@ -10,10 +10,9 @@ var getNumberTwo = function(){
  
 var doAdd = function(){
 	var result = getNumberOne().plus(getNumberTwo());
- 	$("#result").text() = result;
+ 	$("#result").text( result );
 }
 
 var doSubtract = function(){
 	var result = getNumberOne().minus(getNumberTwo());
- 	$("#result").text() = result;
-}
+ 	$("#result").text( result );
