@@ -30,7 +30,7 @@ function fullOptionString(items)
 	
 	for(var i = 0; i < items.length; i++)
 	{
-		result += optionString(item[i]);
+		result += optionString(items[i]);
 	}
 	return result;
 }
