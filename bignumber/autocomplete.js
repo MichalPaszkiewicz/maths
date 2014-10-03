@@ -70,6 +70,6 @@ $('body').on('click', '.ac-option', function() {
 
 	$("textarea").val(resultText);
 	
-	$("textarea").focus();
-	$("#code-text").scrollTop($("#code-text")[0].scrollHeight); 
+	//$("textarea").focus();
+	SetCursorEnd("#code-text");
 });
