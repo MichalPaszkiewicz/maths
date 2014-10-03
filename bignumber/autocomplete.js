@@ -58,18 +58,11 @@ function SetCursorEnd(tID) {
 
 $('body').on('click', '.ac-option', function() {
 	var typedText = $("textarea").val();
-	
 	var index = typedText.lastIndexOf(" ");
-	
-	if(index == null || index == undefined)
-	{
+	if(index == null || index == undefined)	{
 		index = 1;
 	}
-	
 	var resultText = typedText.substr(0, index) + " " + $(this).text();
-
 	$("textarea").val(resultText);
-	
-	//$("textarea").focus();
 	SetCursorEnd("#code-text");
 });
