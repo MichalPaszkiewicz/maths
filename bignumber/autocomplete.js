@@ -45,3 +45,11 @@ function autoComplete()
 	
 	$("#math-words").html( fullOptionString( getRelevantWords(relevantWord) ));
 }
+
+$('body').on('click', '.ac-option', function() {
+	var typedText = $("textarea").val();
+	
+	var resultText = typedText.substr( typedText.lastIndexOf(" "), typedText.length ) + $(this).text();
+
+	$("textarea").val(resultText);
+});
