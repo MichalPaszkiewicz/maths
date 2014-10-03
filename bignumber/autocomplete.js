@@ -21,7 +21,7 @@ function getRelevantWords(word)
 
 function optionString(item)
 {
-	return "<option value='" + item + "'>" + item + "</option>";
+	return "<div class='ac-option' value='" + item + "'>" + item + "</div>";
 }
 
 function fullOptionString(items)
