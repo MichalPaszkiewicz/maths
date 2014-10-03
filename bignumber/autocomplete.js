@@ -38,7 +38,7 @@ function fullOptionString(items)
 	for(var i = 0; i < items.length; i++)
 	{
 		if(i == 0){ result += optionString(items[i], i, "selected") }
-		else{	result += optionString(items[i]); }
+		else{	result += optionString(items[i], i); }
 	}
 	return result;
 }
