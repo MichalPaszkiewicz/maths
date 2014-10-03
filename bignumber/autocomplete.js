@@ -6,6 +6,7 @@ var words = {
 }
 
 var selectedOption = 0;
+var numberOfOptions = 0;
 
 function getRelevantWords(word)
 {
@@ -36,6 +37,7 @@ function optionString(item, i, classText)
 function fullOptionString(items)
 {
 	selectedOption = 0;
+	numberOfOptions = items.length;
 	
 	var result = "";
 	
@@ -94,12 +96,12 @@ $('textarea').on( 'keydown', function( e ) {
 } )
 .keyup(function(e) {
     if( e.which == 40 ){
-    	selectedOption--;
+    	selectedOption = (selectedOption + 1) % numberOfOptions;
     	$(".ac-option").removeClass("selected");
     	$("#aco" + selectedOption).addClass("selected");
     }
     else if(e.which == 38){
-    	selectedOption--;
+    	selectedOption = (selectedOption + numberOfOptions - 1) % numberOfOptions;
     	$(".ac-option").removeClass("selected");
     	$("#aco" + selectedOption).addClass("selected");
     }
