@@ -97,9 +97,29 @@ function getPaddingString(length)
 	return string;
 }
 
-//note: only works for positive numbers for now.
 number.prototype.plus = function( otherNumber )
 {
+	if(!this.positive)
+	{
+		if(!otherNumber.positive)
+		{
+			var tempThis = new number(true, this.value);
+			var tempThat = new number(true, otherNumber.value);
+			var correctVal = tempThis.plus(tempThat).value;
+			return new number(false, correctVal)
+		}
+		else
+		{
+			var tempThis = new number( true, this.value );
+			return otherNumber.minus(this);
+		}
+	}
+	else if(!otherNumber.positive)
+	{
+		var tempThat = new number( true, otherNumber.value );
+		return this.minus(tempThat);
+	}
+	
 	var thisLastDigit = this.value.length;
 	var thatLastDigit = otherNumber.value.length;
 	var carried = 0;
