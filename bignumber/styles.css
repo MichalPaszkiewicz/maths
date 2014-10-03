@@ -294,6 +294,17 @@ img[src*="http://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png
   word-break: break-all;
 }
 
+#math-words{
+  border-radius: 5px;
+  border: 1px black solid;
+  width: 160px;
+  overflow: hidden;
+}
+
 .ac-option{
-  background: green;
+  background: rgb(225, 235, 238);
+  padding: 5px;
+  width: 150px;
+  cursor: pointer;
+  box-shadow: 0 1px 3px black;
 }
