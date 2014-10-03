@@ -293,3 +293,7 @@ img[src*="http://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png
 {
   word-break: break-all;
 }
+
+.ac-option{
+  background: green;
+}
