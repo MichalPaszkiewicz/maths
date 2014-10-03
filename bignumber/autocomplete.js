@@ -5,6 +5,8 @@ var words = {
 	divideBy: ""
 }
 
+var selectedOption = 0;
+
 function getRelevantWords(word)
 {
 	var wordArray = Object.getOwnPropertyNames(words);
@@ -33,6 +35,8 @@ function optionString(item, i, classText)
 
 function fullOptionString(items)
 {
+	selectedOption = 0;
+	
 	var result = "";
 	
 	for(var i = 0; i < items.length; i++)
@@ -87,18 +91,17 @@ $('textarea').on( 'keydown', function( e ) {
         
         replaceText($(".ac-option.selected").text());
     }
-    else if( e.which == 40 ){
-    	e.preventDefault();
-    	var IDed = $(".ac-option.selected")[0].id;
-    	var index = parseInt(IDed[3]) + 1;
+} )
+.keyup(function(e) {
+    if( e.which == 40 ){
+    	selectedOption--;
     	$(".ac-option").removeClass("selected");
-    	$("#aco" + index).addClass("selected");
+    	$("#aco" + selectedOption).addClass("selected");
     }
     else if(e.which == 38){
-    	e.preventDefault();
-    	var IDed = $(".ac-option.selected")[0].id;
-    	var index = parseInt(IDed[3]) - 1;
+    	selectedOption--;
     	$(".ac-option").removeClass("selected");
-    	$("#aco" + index).addClass("selected");
+    	$("#aco" + selectedOption).addClass("selected");
     }
-} );
+    return false;
+});
