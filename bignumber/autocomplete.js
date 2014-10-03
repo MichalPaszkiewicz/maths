@@ -19,7 +19,27 @@ function getRelevantWords(word)
 	return relevantWords;
 }
 
+function optionString(item)
+{
+	return "<option value='" + item + "'>" + item + "</option>";
+}
+
+function fullOptionString(items)
+{
+	var result = "";
+	
+	for(var i = 0; i < items.length; i++)
+	{
+		result += optionString(item[i]);
+	}
+	return result;
+}
+
 function autoComplete()
 {
 	$("#math-words").removeClass("hidden");
+	
+	var relevantWord = $("textarea").val();
+	
+	$("#math-words").html( fullOptionString( getRelevantWords(relevantWord) ));
 }
