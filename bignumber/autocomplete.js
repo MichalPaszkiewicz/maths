@@ -39,7 +39,9 @@ function autoComplete()
 {
 	$("#math-words").removeClass("hidden");
 	
-	var relevantWord = $("textarea").val();
+	var typedText = $("textarea").val();
+	
+	var relevantWord =  typedText.split(' ').pop();
 	
 	$("#math-words").html( fullOptionString( getRelevantWords(relevantWord) ));
 }
