@@ -17,3 +17,13 @@ var doSubtract = function(){
 	var result = getNumberOne().minus(getNumberTwo());
  	$("#result").text( result.toString() );
 }
+
+var doMultiply = function()
+{
+	alert("not implemented!");
+}
+
+var doDivide = function()
+{
+	alert("not implemented!");
+}
