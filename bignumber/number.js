@@ -167,6 +167,24 @@ number.prototype.plus = function( otherNumber )
 //lies. This is not yet done.
 number.prototype.minus = function( otherNumber )
 {
+	if(!this.positive)
+	{
+		if(!otherNumber.positive)
+		{
+			var tempThat = new number(true, otherNumber.value);
+			return tempThat.plus(this);
+		}
+		else
+		{
+			return otherNumber.plus(this);
+		}
+	}
+	else if(!otherNumber.positive)
+	{
+		var tempThat = new number( true, otherNumber.value );
+		return this.plus(tempThat);
+	}
+	
 	var thisLastDigit = this.value.length;
 	var thatLastDigit = otherNumber.value.length;
 	var carried = 0;
