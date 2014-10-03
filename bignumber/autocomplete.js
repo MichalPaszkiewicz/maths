@@ -100,7 +100,7 @@ $('textarea').on( 'keydown', function( e ) {
     	$(".ac-option").removeClass("selected");
     	$("#aco" + selectedOption).addClass("selected");
     }
-    else if(e.which == 38){
+    if( e.which == 38 ){
     	selectedOption = (selectedOption + numberOfOptions - 1) % numberOfOptions;
     	$(".ac-option").removeClass("selected");
     	$("#aco" + selectedOption).addClass("selected");
