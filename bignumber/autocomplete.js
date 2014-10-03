@@ -72,7 +72,7 @@ $('body').on('click', '.ac-option', function() {
 	replaceText($(this).text());
 });
 
-$('textarea').on( 'keyup', function( e ) {
+$('textarea').on( 'keydown', function( e ) {
     if( e.which == 9 ) {
     	e.preventDefault();
         console.log( e.target.href );
