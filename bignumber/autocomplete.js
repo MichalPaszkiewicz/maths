@@ -56,13 +56,27 @@ function SetCursorEnd(tID) {
     $(tID).scrollTop($(tID)[0].scrollHeight); 
 }
 
-$('body').on('click', '.ac-option', function() {
+function replaceText(replacementText)
+{
 	var typedText = $("textarea").val();
 	var index = typedText.lastIndexOf(" ");
 	if(index == null || index == undefined)	{
 		index = 1;
 	}
-	var resultText = typedText.substr(0, index) + " " + $(this).text();
+	var resultText = typedText.substr(0, index) + " " + replacementText;
 	$("textarea").val(resultText);
 	SetCursorEnd("#code-text");
+}
+
+$('body').on('click', '.ac-option', function() {
+	replaceText($(this).text());
 });
+
+$('textarea').on( 'keyup', function( e ) {
+    if( e.which == 9 ) {
+    	e.preventDefault();
+        console.log( e.target.href );
+        
+        replaceText($($(".ac-option")[0]).text());
+    }
+} );
