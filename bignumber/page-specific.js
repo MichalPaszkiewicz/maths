@@ -1,10 +1,10 @@
 //only works for positive for now!
 var getNumberOne = function(){
-	return new number( true, $("#number-one").text() );
+	return new number( true, $("#number-one").val() );
 }
 
 var getNumberTwo = function(){
-	return new number( true, $("#number-two").text() );
+	return new number( true, $("#number-two").val() );
 }
 
  
