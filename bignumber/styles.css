@@ -308,3 +308,7 @@ img[src*="http://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png
   cursor: pointer;
   box-shadow: 0 1px 3px black;
 }
+
+.ac-option:hover, .ac-option.selected{
+  background: rgb(195, 222, 247);
+}
