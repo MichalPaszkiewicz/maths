@@ -236,6 +236,8 @@ number.prototype.divideBy = function(divisor)
 		alert("You cannot divide by 0!!!");
 	}
 	
+	alert("not implemented!");
+	
 	return { quotient: this, remainder: 5 };
 }
 
@@ -265,4 +267,20 @@ function complexNumber( realPositive, realValue, iPositive, iValue)
 		var iSign = this.i.positive ? "+" : "-";
 		return realSign + this.real.value + iSign + this.i.value + "i";
 	}
+}
+
+complexNumber.prototype.add = function(otherComplexNum)
+{
+	var newReal = this.real.plus(otherComplexNum.real);
+	var newI = this.i.plus(otherComplexNum.i);
+	
+	return new complexNumber( newReal.positive, newReal.value, newI.positive, newI.value );
+}
+
+complexNumber.prototype.minus = function(otherComplexNum)
+{
+	var newReal = this.real.minus(otherComplexNum.real);
+	var newI = this.i.minus(otherComplexNum.i);
+	
+	return new complexNumber( newReal.positive, newReal.value, newI.positive, newI.value );
 }
