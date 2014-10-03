@@ -49,15 +49,18 @@ function fullOptionString(items)
 	return result;
 }
 
-function autoComplete()
+function autoComplete(e)
 {
-	$("#math-words").removeClass("hidden");
-	
-	var typedText = $("textarea").val();
-	
-	var relevantWord =  typedText.split(' ').pop();
-	
-	$("#math-words").html( fullOptionString( getRelevantWords(relevantWord) ));
+	if( e.which != 40 && e.which != 38 )
+	{
+		$("#math-words").removeClass("hidden");
+		
+		var typedText = $("textarea").val();
+		
+		var relevantWord =  typedText.split(' ').pop();
+		
+		$("#math-words").html( fullOptionString( getRelevantWords(relevantWord) ));
+	}
 }
 
 function SetCursorEnd(tID) {
