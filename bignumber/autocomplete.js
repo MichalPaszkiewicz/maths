@@ -49,7 +49,14 @@ function autoComplete()
 $('body').on('click', '.ac-option', function() {
 	var typedText = $("textarea").val();
 	
-	var resultText = typedText.substr( typedText.lastIndexOf(" "), typedText.length ) + $(this).text();
+	var index = typedText.lastIndexOf(" ");
+	
+	if(index == null || index == undefined)
+	{
+		index = 1;
+	}
+	
+	var resultText = typedText.substr(0, index) + $(this).text();
 
 	$("textarea").val(resultText);
 });
