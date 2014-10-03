@@ -90,7 +90,7 @@ $('body').on('click', '.ac-option', function() {
 });
 
 $('textarea').on( 'keydown', function( e ) {
-    if( e.which == 9 ) {
+    if( e.which == 9 || e.which == 13) {
     	e.preventDefault();
         console.log( e.target.href );
         
