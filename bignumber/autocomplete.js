@@ -90,19 +90,15 @@ $('textarea').on( 'keydown', function( e ) {
     else if( e.which == 40 ){
     	e.preventDefault();
     	var IDed = $(".ac-option.selected")[0].id;
-    	$(".ac-option").removeClass("selected");
-    	
     	var index = parseInt(IDed[3]) + 1;
-    	
+    	$(".ac-option").removeClass("selected");
     	$("#aco" + index).addClass("selected");
     }
     else if(e.which == 38){
     	e.preventDefault();
     	var IDed = $(".ac-option.selected")[0].id;
-    	$(".ac-option").removeClass("selected");
-    	
     	var index = parseInt(IDed[3]) - 1;
-    	
+    	$(".ac-option").removeClass("selected");
     	$("#aco" + index).addClass("selected");
     }
 } );
