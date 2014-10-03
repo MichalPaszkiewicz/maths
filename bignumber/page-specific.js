@@ -16,3 +16,4 @@ var doAdd = function(){
 var doSubtract = function(){
 	var result = getNumberOne().minus(getNumberTwo());
  	$("#result").text( result );
+}
