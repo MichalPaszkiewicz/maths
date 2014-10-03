@@ -59,4 +59,6 @@ $('body').on('click', '.ac-option', function() {
 	var resultText = typedText.substr(0, index) + " " + $(this).text();
 
 	$("textarea").val(resultText);
+	
+	$("textarea").focus();
 });
