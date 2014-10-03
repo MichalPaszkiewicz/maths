@@ -269,7 +269,7 @@ function complexNumber( realPositive, realValue, iPositive, iValue)
 	}
 }
 
-complexNumber.prototype.add = function(otherComplexNum)
+complexNumber.prototype.plus = function(otherComplexNum)
 {
 	var newReal = this.real.plus(otherComplexNum.real);
 	var newI = this.i.plus(otherComplexNum.i);
