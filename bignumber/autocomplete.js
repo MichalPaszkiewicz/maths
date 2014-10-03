@@ -11,7 +11,7 @@ function getRelevantWords(word)
 	var relevantWords = [];
 	for(var i = 0; i < wordArray.length; i++)
 	{
-		if(wordArray[i].substr(0, word.length) == word)
+		if(wordArray[i].toLowerCase().substr(0, word.length) == word.toLowerCase())
 		{
 			relevantWords.push(wordArray[i]);
 		}
