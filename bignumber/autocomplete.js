@@ -19,7 +19,7 @@ function getRelevantWords(word)
 	return relevantWords;
 }
 
-function optionString(item, classText)
+function optionString(item, i, classText)
 {
 	var selectedString = "";
 	
@@ -28,7 +28,7 @@ function optionString(item, classText)
 		selectedString = classText;
 	}
 	
-	return "<div class='ac-option " + selectedString + "' value='" + item + "'>" + item + "</div>";
+	return "<div id='aco" + i + "' class='ac-option " + selectedString + "' value='" + item + "'>" + item + "</div>";
 }
 
 function fullOptionString(items)
@@ -37,7 +37,7 @@ function fullOptionString(items)
 	
 	for(var i = 0; i < items.length; i++)
 	{
-		if(i == 0){ result += optionString(items[i], "selected") }
+		if(i == 0){ result += optionString(items[i], i, "selected") }
 		else{	result += optionString(items[i]); }
 	}
 	return result;
@@ -86,5 +86,21 @@ $('textarea').on( 'keydown', function( e ) {
         console.log( e.target.href );
         
         replaceText($(".ac-option.selected").text());
+    }
+    else if( e.which == 40 ){
+    	var IDed = $(".ac-option.selected").id;
+    	$(".ac-option").removeClass("selected");
+    	
+    	var index = parseInt(IDed[3]) + 1;
+    	
+    	$("#aco" + index).addClass("selected");
+    }
+    else if(e.which == 38){
+    	    	var IDed = $(".ac-option.selected").id;
+    	$(".ac-option").removeClass("selected");
+    	
+    	var index = parseInt(IDed[3]) - 1;
+    	
+    	$("#aco" + index).addClass("selected");
     }
 } );
