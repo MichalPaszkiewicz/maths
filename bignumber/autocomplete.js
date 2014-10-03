@@ -46,6 +46,16 @@ function autoComplete()
 	$("#math-words").html( fullOptionString( getRelevantWords(relevantWord) ));
 }
 
+function SetCursorEnd(tID) {
+    tID += "";
+    $(tID).focus();
+    var t = $(tID).val();
+    if (t.length == 0) { return; }
+    $(tID).val("");
+    $(tID).val(t);
+    $(tID).scrollTop($(tID)[0].scrollHeight); 
+}
+
 $('body').on('click', '.ac-option', function() {
 	var typedText = $("textarea").val();
 	
@@ -61,4 +71,6 @@ $('body').on('click', '.ac-option', function() {
 	$("textarea").val(resultText);
 	
 	$("textarea").focus();
+	
+	SetCursorEnd("#code-text");
 });
