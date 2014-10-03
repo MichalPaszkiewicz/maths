@@ -88,6 +88,7 @@ $('textarea').on( 'keydown', function( e ) {
         replaceText($(".ac-option.selected").text());
     }
     else if( e.which == 40 ){
+    	e.preventDefault();
     	var IDed = $(".ac-option.selected")[0].id;
     	$(".ac-option").removeClass("selected");
     	
@@ -96,7 +97,8 @@ $('textarea').on( 'keydown', function( e ) {
     	$("#aco" + index).addClass("selected");
     }
     else if(e.which == 38){
-    	    	var IDed = $(".ac-option.selected")[0].id;
+    	e.preventDefault();
+    	var IDed = $(".ac-option.selected")[0].id;
     	$(".ac-option").removeClass("selected");
     	
     	var index = parseInt(IDed[3]) - 1;
