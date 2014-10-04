@@ -312,3 +312,9 @@ img[src*="http://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png
 .ac-option:hover, .ac-option.selected{
   background: rgb(195, 222, 247);
 }
+
+#code-text{
+  background: rgb(243, 253, 188);
+  height: 50px;
+  padding: 10px;
+}
