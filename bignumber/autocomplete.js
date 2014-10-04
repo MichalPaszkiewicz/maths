@@ -67,7 +67,7 @@ function SetCursorEnd(tID) {
     	var el = document.getElementById(tID);
 	var range = document.createRange();
 	var sel = window.getSelection();
-	range.setStart(el.childNodes[1], $(tID).text().length);
+	range.setStart(el.childNodes[0], $(tID).text().length);
 	range.collapse(true);
 	sel.removeAllRanges();
 	sel.addRange(range);
