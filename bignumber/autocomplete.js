@@ -55,7 +55,7 @@ function autoComplete(e)
 	{
 		$("#math-words").removeClass("hidden");
 		
-		var typedText = $("textarea").val();
+		var typedText = $("#code-text").val();
 		
 		var relevantWord =  typedText.split(' ').pop();
 		
@@ -75,13 +75,13 @@ function SetCursorEnd(tID) {
 
 function replaceText(replacementText)
 {
-	var typedText = $("textarea").val();
+	var typedText = $("#code-text").val();
 	var index = typedText.lastIndexOf(" ");
 	if(index == null || index == undefined)	{
 		index = 1;
 	}
 	var resultText = typedText.substr(0, index) + " " + replacementText;
-	$("textarea").val(resultText);
+	$("#code-text").val(resultText);
 	SetCursorEnd("#code-text");
 }
 
@@ -89,7 +89,7 @@ $('body').on('click', '.ac-option', function() {
 	replaceText($(this).text());
 });
 
-$('textarea').on( 'keydown', function( e ) {
+$('#code-text').on( 'keydown', function( e ) {
     if( e.which == 9 || e.which == 13) {
     	e.preventDefault();
         console.log( e.target.href );
