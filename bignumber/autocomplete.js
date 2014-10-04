@@ -66,10 +66,10 @@ function autoComplete(e)
 function SetCursorEnd(tID) {
     tID += "";
     $(tID).focus();
-    var t = $(tID).val();
+    var t = $(tID).text();
     if (t.length == 0) { return; }
-    $(tID).val("");
-    $(tID).val(t);
+    $(tID).text("");
+    $(tID).text(t);
     $(tID).scrollTop($(tID)[0].scrollHeight); 
 }
 
