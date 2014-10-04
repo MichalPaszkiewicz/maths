@@ -55,7 +55,7 @@ function autoComplete(e)
 	{
 		$("#math-words").removeClass("hidden");
 		
-		var typedText = $("#code-text").val();
+		var typedText = $("#code-text").text();
 		
 		var relevantWord =  typedText.split(' ').pop();
 		
@@ -75,13 +75,13 @@ function SetCursorEnd(tID) {
 
 function replaceText(replacementText)
 {
-	var typedText = $("#code-text").val();
+	var typedText = $("#code-text").text();
 	var index = typedText.lastIndexOf(" ");
 	if(index == null || index == undefined)	{
 		index = 1;
 	}
 	var resultText = typedText.substr(0, index) + " " + replacementText;
-	$("#code-text").val(resultText);
+	$("#code-text").text(resultText);
 	SetCursorEnd("#code-text");
 }
 
