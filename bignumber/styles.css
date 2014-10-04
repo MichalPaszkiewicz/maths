@@ -315,6 +315,6 @@ img[src*="http://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png
 
 #code-text{
   background: rgb(243, 253, 188);
-  height: 50px;
+  min-height: 50px;
   padding: 10px;
 }
