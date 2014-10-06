@@ -19,7 +19,8 @@ var words = {
 	arctanh: "",
 	e: "",
 	pi: "",
-	exp: ""
+	exp: "",
+	timesTenToThe: ""
 }
 
 var selectedOption = 0;
