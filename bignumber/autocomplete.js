@@ -20,7 +20,8 @@ var words = {
 	e: "",
 	pi: "",
 	exp: "",
-	timesTenToThe: ""
+	timesTenToThe: "",
+	square: ""
 }
 
 var selectedOption = 0;
