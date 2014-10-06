@@ -285,14 +285,17 @@ function karatsuba(x, y)
 		return longMultiply(x, y);
 	}
 	
+	var deg = Math.floor(x_length / 2);
+	
 	var xSplit = splitInHalf(x);
 	var ySplit = splitInHalf(y);
 
-	var a = karatsuba(xSplit[0], ySplit[0]).timesTenToThe(2 * Math.floor(x_length / 2));
+	var a = karatsuba(xSplit[0], ySplit[0]);
+	var a_powed = a.timesTenToThe(2 * deg);
 	var c = karatsuba(xSplit[1], ySplit[1]);
-	var b = karatsuba(xSplit[0].plus(xSplit[1]), ySplit[0].plus(ySplit[1])).minus(a).minus(c).timesTenToThe(Math.floor(x_length / 2));
+	var b = karatsuba(xSplit[0].plus(xSplit[1]), ySplit[0].plus(ySplit[1])).minus(a).minus(c).timesTenToThe(deg);
 
-	return a.plus(c).plus(b);
+	return a_powed.plus(c).plus(b);
 }
 
 
