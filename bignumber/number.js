@@ -244,8 +244,8 @@ number.prototype.divideBy = function(divisor)
 function splitInHalf(x)
 {
 	var result = [];
-	result.push( new number( x.positive,  x.value.substr(0, Math.ceil( x.value.length / 2 ) - 1) ));
-	result.push( new number( x.positive,  x.value.substr( Math.ceil( x.value.length / 2 ) - 1, 0) ));
+	result.push( new number( x.positive,  x.value.substr(0, Math.ceil( x.value.length / 2 )) ));
+	result.push( new number( x.positive,  x.value.substr( Math.ceil( x.value.length / 2 ), x.value.length -  Math.ceil(x.value.length / 2)) ));
 
 	return result;
 }
