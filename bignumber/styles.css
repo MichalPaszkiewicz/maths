@@ -299,6 +299,8 @@ img[src*="http://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png
   border: 1px black solid;
   width: 160px;
   overflow: hidden;
+  display: inline-block;
+  background: rgb(239, 255, 234);
 }
 
 .ac-option{
@@ -307,6 +309,7 @@ img[src*="http://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png
   width: 150px;
   cursor: pointer;
   box-shadow: 0 1px 3px black;
+  display: inline-block;
 }
 
 .ac-option:hover, .ac-option.selected{
