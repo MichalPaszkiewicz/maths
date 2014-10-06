@@ -240,18 +240,59 @@ number.prototype.divideBy = function(divisor)
 	return { quotient: this, remainder: 5 };
 }
 
-number.prototype.getHex = function()
+//note: returns array of numbers.
+function splitInHalf(x)
 {
-	var hexString = "";
-	var quotient = new number(this.positive, this.value);
-	var divisor = new number( true, 16 );
+	var result = [];
+	result.add( new number( x.positive,  x.substr(0, Math.ceil( x.length / 2 )) ));
+	result.add( new number( x.positive,  x.substr( Math.ceil( x.length / 2 ), 0) ));
+
+	return result;
+}
+
+function getChars(x, char)
+{
+	var n = x;
+	result = "";
+	while(n > 0){
+		result += char;
+		n--;
+	}
+	return result;
+}
+
+//note: this needs to be more accurate for x >> y and x << y, or will cause rounding errors.
+function longMultiply(x, y)
+{
+	var positive = x.positive == y.positive;
+	return new number(positive , parseInt(x.value) * parseInt(y.value) );
+}
+
+number.prototype.timesTenToThe = function(x)
+{
+	var tempThis = this;
+	tempThis.value += getChars(x, "0");
+	return tempThis;
+}
+
+function karatsuba(x, y)
+{
+	x_length = x.value.length;
+	y_length = y.value.length;
 	
-	for(var i = 0; i < this.value.length; i++)
+	if(x_length == 1 || y_length == 1)
 	{
-		var result = quotient.divideBy( divisor );
-		quotient = result.quotient;
-		hexString = numVals[result.remainder] + hexString;
+		return longMultiply(x, y);
 	}
 	
-	return hexString;
+	var xSplit = splitInHalf(x);
+	var ySplit = splitInHalf(y);
+
+	var a = karatsuba(xSplit[0], ySplit[0]).timesTenToThe(2 * Math.floor(x_length / 2));
+	var c = karatsuba(xSplit[1], ySplit[1]);
+	var b = karatsuba(xSplit[0].plus(xSplit[1]).value, ySplit[0].plus(ySplit[1]).value).minus(a).minus(c).timesTenToThe(Math.floor(x_length / 2));
+
+	return a.plus(c).plus(b);
 }
+
+
