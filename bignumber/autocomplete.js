@@ -2,7 +2,21 @@ var words = {
 	plus : "",
 	minus : "",
 	multiplyBy: "",
-	divideBy: ""
+	divideBy: "",
+	integrate: "",
+	differentiate: "",
+	sin: "",
+	cos: "",
+	tan: "",
+	sin-1: "",
+	cos-1: "",
+	tan-1: "",
+	sinh: "",
+	cosh: "",
+	tanh: "",
+	e: "",
+	pi: "",
+	exp: "";
 }
 
 var selectedOption = 0;
