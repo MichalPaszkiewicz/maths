@@ -290,7 +290,7 @@ function karatsuba(x, y)
 
 	var a = karatsuba(xSplit[0], ySplit[0]).timesTenToThe(2 * Math.floor(x_length / 2));
 	var c = karatsuba(xSplit[1], ySplit[1]);
-	var b = karatsuba(xSplit[0].plus(xSplit[1]).value, ySplit[0].plus(ySplit[1]).value).minus(a).minus(c).timesTenToThe(Math.floor(x_length / 2));
+	var b = karatsuba(xSplit[0].plus(xSplit[1]), ySplit[0].plus(ySplit[1])).minus(a).minus(c).timesTenToThe(Math.floor(x_length / 2));
 
 	return a.plus(c).plus(b);
 }
