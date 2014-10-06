@@ -20,7 +20,8 @@ var doSubtract = function(){
 
 var doMultiply = function()
 {
-	alert("not implemented!");
+	var result = karatsuba(getNumberOne(), getNumberTwo());
+	$("#result").text( result.toString());
 }
 
 var doDivide = function()
