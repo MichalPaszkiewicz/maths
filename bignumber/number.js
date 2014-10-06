@@ -270,7 +270,7 @@ function longMultiply(x, y)
 
 number.prototype.timesTenToThe = function(x)
 {
-	var tempThis = this;
+	var tempThis = new number(this.positive, this.value);
 	tempThis.value += getChars(x, "0");
 	return tempThis;
 }
