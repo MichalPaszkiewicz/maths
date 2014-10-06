@@ -233,6 +233,11 @@ number.prototype.multiplyBy = function(otherNumber)
 	return karatsuba(this, otherNumber);
 }
 
+number.prototype.square = function()
+{
+	return karatsuba(this, this);
+}
+
 //note: not implemented. Use newton-raphson division algorithm?
 number.prototype.divideBy = function(divisor)
 {
