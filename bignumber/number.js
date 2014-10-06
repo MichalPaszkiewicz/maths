@@ -293,7 +293,12 @@ function karatsuba(x, y)
 	var a = karatsuba(xSplit[0], ySplit[0]);
 	var a_powed = a.timesTenToThe(2 * deg);
 	var c = karatsuba(xSplit[1], ySplit[1]);
-	var b = karatsuba(xSplit[0].plus(xSplit[1]), ySplit[0].plus(ySplit[1]));
+	
+	var x_sum = xSplit[0].plus(xSplit[1]);
+	var y_sum = ySplit[0].plus(ySplit[1]);
+	
+	var b = karatsuba(x_sum, y_sum);
+	
 	var b_minus_a = b.minus(a);
 	var b_minus_a_minus_c = b_minus_a.minus(c);
 	var b_powed = b_minus_a_minus_c.timesTenToThe(deg);
