@@ -20,7 +20,7 @@ var doSubtract = function(){
 
 var doMultiply = function()
 {
-	var result = getNumberOne()multiplyBy(getNumberTwo());
+	var result = getNumberOne().multiplyBy(getNumberTwo());
 	$("#result").text( result.toString());
 }
 
