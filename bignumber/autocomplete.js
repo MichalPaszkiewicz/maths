@@ -63,16 +63,6 @@ function autoComplete(e)
 	}
 }
 
-function SetCursorEnd(tID) {
-    	var el = document.getElementById(tID);
-	var range = document.createRange();
-	var sel = window.getSelection();
-	range.setStart(el.childNodes[0], $(tID).text().length);
-	range.collapse(true);
-	sel.removeAllRanges();
-	sel.addRange(range);
-}
-
 function replaceText(replacementText)
 {
 	var typedText = $("#code-text").text();
@@ -82,7 +72,9 @@ function replaceText(replacementText)
 	}
 	var resultText = typedText.substr(0, index) + " " + replacementText;
 	$("#code-text").text(resultText);
-	SetCursorEnd("code-text");
+	
+	var editableDiv = document.getElementById("code-text");
+	cursorManager.setEndOfContenteditable(editableDiv);
 }
 
 $('body').on('click', '.ac-option', function() {
