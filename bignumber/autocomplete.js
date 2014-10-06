@@ -87,7 +87,7 @@ function replaceText(replacementText)
 	if(index == null || index == undefined)	{
 		index = 1;
 	}
-	var resultText = typedText.substr(0, index) + " " + replacementText;
+	var resultText = typedText.substr(0, index) + " " + replacementText + " ";
 	$("#code-text").text(resultText);
 	
 	var editableDiv = document.getElementById("code-text");
