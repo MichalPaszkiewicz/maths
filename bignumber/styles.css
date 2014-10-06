@@ -297,7 +297,6 @@ img[src*="http://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png
 #math-words{
   border-radius: 5px;
   border: 1px black solid;
-  width: 160px;
   overflow: hidden;
   display: inline-block;
   background: rgb(239, 255, 234);
