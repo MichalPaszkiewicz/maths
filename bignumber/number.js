@@ -227,7 +227,13 @@ number.prototype.minus = function( otherNumber )
 	}
 }
 
-//note: note implemented. Use newton-raphson division algorithm?
+//note: not tested for negative values.
+number.prototype.multiplyBy = function(otherNumber)
+{
+	return karatsuba(this, otherNumber);
+}
+
+//note: not implemented. Use newton-raphson division algorithm?
 number.prototype.divideBy = function(divisor)
 {
 	if(divisor.value == "0")
