@@ -31,6 +31,8 @@
     <div class="panel-box">
       <h3>Finding numbers where both they and their constituent digits can be written as a power of two</h3>
       
+      <br>
+      
       <button onclick="GetNext()">Get next</button>
 
       <div id="result">1</div>
@@ -49,10 +51,12 @@
 </div>
 
   <script>
-    var isInSeries = function(nextValue){
-      for(var i = 0; i < (nextValue + "").length; i++){
-        var tempChar = parseInt((nextValue + "")[i]);
-        if(tempChar != 1 && tempChar != 2 && tempChar != 4 && tempChar != 8 && tempChar != 1){
+    blah = new number(true, "1");
+  
+    var isInSeries = function(blahz){
+      for(var i = 0; i < (blahz.value + "").length; i++){
+        var tempChar = parseInt((blahz.value + "")[i]);
+        if(tempChar != 1 && tempChar != 2 && tempChar != 4 && tempChar != 8){
           return false;
         }
 
@@ -61,25 +65,17 @@
     };
   
     var GetNext = function(){
-      var current = parseInt($("#result").text());
 
-      var nextValue = current;
-      
       while(true){
-        if(nextValue == "Infinity"){
-          $("#result").text("Infinity");
-          break;
-        }
+        blah = blah.plus(blah);
         
-        nextValue *= 2;
-        
-        if( isInSeries(nextValue) )
+        if( isInSeries(blah) )
         {
           break;
         }
       }
       
-      $("#result").text(nextValue);
+      $("#result").text(blah.value);
     }
     
   </script>
