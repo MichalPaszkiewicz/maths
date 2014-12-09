@@ -52,7 +52,7 @@
     var isInSeries = function(nextValue){
       for(var i = 0; i < (nextValue + "").length; i++){
         var tempChar = parseInt((nextValue + "")[i]);
-        if(tempChar % 2 != 0 && tempChar != 1){
+        if(tempChar != 1 && tempChar != 2 && tempChar != 4 && tempChar != 8 && tempChar != 1){
           return false;
         }
         return true;
