@@ -34,15 +34,19 @@
       <br>
       
       <div style="clear:both;">
-      <button onclick="GetNext()">Get next</button>
+      <!--<button onclick="GetNext()">Get next</button>-->
       <button onclick="Iterate1000()">Iterate through 1000 values</button>
-
-      <div id="result">1</div>
-    </div>
-    
+      
     <div style="clear:both;">
+      <p>Iteration:</p>
       <div id="iteration">0</div>
     </div>
+    
+      <p>Value:</p>
+      <div id="result" style="word-break: break-all; clear: both">1</div>
+    </div>
+    
+
     
     
     </div>
@@ -91,13 +95,11 @@
 
       for(var i = 0; i < 1000; i++){
         blah = blah.plus(blah);
-        
+        iterator++;
         if( isInSeries(blah) )
         {
           break;
         }
-        
-        iterator++;
       }
       
       $("#result").text(blah.value);
