@@ -35,9 +35,15 @@
       
       <div style="clear:both;">
       <button onclick="GetNext()">Get next</button>
+      <button onclick="Iterate1000()">Iterate through 1000 values</button>
 
       <div id="result">1</div>
     </div>
+    
+    <div style="clear:both;">
+      <div id="iteration">0</div>
+    </div>
+    
     
     </div>
 
@@ -54,6 +60,7 @@
 
   <script>
     blah = new number(true, "1");
+    var iterator = 0;
   
     var isInSeries = function(blahz){
       for(var i = 0; i < (blahz.value + "").length; i++){
@@ -78,6 +85,23 @@
       }
       
       $("#result").text(blah.value);
+    }
+    
+    var Iterate1000 = function(){
+
+      for(var i = 0; i < 1000; i++){
+        blah = blah.plus(blah);
+        
+        if( isInSeries(blah) )
+        {
+          break;
+        }
+        
+        iterator++;
+      }
+      
+      $("#result").text(blah.value);
+      $("#iteration").text(iterator);
     }
     
   </script>
