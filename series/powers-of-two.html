@@ -42,6 +42,11 @@
       <div id="iteration">0</div>
     </div>
     
+    <div style="clear:both;">
+      <p>Is in series?:</p>
+      <div id="solved">true</div>
+    </div>
+    
       <p>Value:</p>
       <div id="result" style="word-break: break-all; clear: both">1</div>
     </div>
@@ -93,15 +98,18 @@
     
     var Iterate1000 = function(){
 
+      var solved = "false";
       for(var i = 0; i < 1000; i++){
         blah = blah.plus(blah);
         iterator++;
         if( isInSeries(blah) )
         {
+          solved = "true";
           break;
         }
       }
       
+      $("solved").text(solved);
       $("#result").text(blah.value);
       $("#iteration").text(iterator);
     }
