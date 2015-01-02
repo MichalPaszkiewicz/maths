@@ -97,7 +97,7 @@ var gameModule = angular.module('app', []).
 				}
 				
 				var newCombinations = getResult(startArray.concat(arrayOfNumbers[i]), tempArray, expected);
-				if(newCombinations.result = true){return newCombinations;}
+				if(newCombinations.result == true){return newCombinations;}
 				else{
 					results = results.concat(newCombinations);
 				}
