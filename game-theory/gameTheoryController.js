@@ -118,7 +118,9 @@ var gameModule = angular.module('app', []).
 			var calculable = true;
 			var currentNumber = 1;
 			
-			while(calculable && currentNumber <= sumNumbers($scope.numbers)){
+			var maxNumber = sumNumbers($scope.numbers);
+			
+			while(calculable && currentNumber <= maxNumber){
 				parts = [];
 				
 				var solved = false;
