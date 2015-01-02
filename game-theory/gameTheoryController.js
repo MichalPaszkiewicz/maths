@@ -10,6 +10,17 @@ var gameModule = angular.module('app', []).
 	    	$scope.numbers=[];
 	    	$scope.solutions=[];
 	    	
+	    	$scope.getStarter = function(){
+	    		var isEven = ($scope.solutions % 2) == 0;
+	    		
+	    		if(isEven){
+	    			return "Alice";
+	    		}
+	    		else{
+	    			return "Bob";
+	    		}
+	    	}
+	    	
 	    	function solution(x, parts){
 	    		this.number = x;
 	    		this.parts = parts;
