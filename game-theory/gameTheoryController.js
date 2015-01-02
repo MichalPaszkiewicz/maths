@@ -132,6 +132,7 @@ var gameModule = angular.module('app', []).
 				if(!solved){
 					var returnses = getResult([], smallerNums, currentNumber);
 					if(returnses.result == true){
+						$scope.solutions.push(new solution(currentNumber, returnses.values));
 						solved = true;
 					}
 					else{
