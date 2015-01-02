@@ -50,7 +50,7 @@ var gameModule = angular.module('app', []).
 		function sumNumbers(numbers){
 			var num = 0;
 			for(var i = 0; i < numbers.length; i++){
-				num += parseInt(numbers.name);
+				num += parseInt(numbers[i].name);
 			}
 			return num;
 		}
