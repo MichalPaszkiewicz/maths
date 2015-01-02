@@ -68,7 +68,7 @@ var gameModule = angular.module('app', []).
 			return newArray;
 		}
 		
-		var getCombinationsOLD = function(startArray, arrayOfNumbers){
+		var getCombinations = function(startArray, arrayOfNumbers){
 			var results = [];
 			for(var i = 0; i < arrayOfNumbers.length; i++){
 				results.push(startArray.concat(arrayOfNumbers[i]));
@@ -83,7 +83,7 @@ var gameModule = angular.module('app', []).
 			return results;
 		}
 		
-		var getCombinations = function(startArray, arrayOfNumbers, expected){
+		var getCombinationsNotSoGood = function(startArray, arrayOfNumbers, expected){
 			var results = [];
 			for(var i = arrayOfNumbers.length - 1; i > -1; i--){
 				results.push(startArray.concat(arrayOfNumbers[i]));
@@ -126,7 +126,7 @@ var gameModule = angular.module('app', []).
 				}
 				
 				if(!solved){
-					var combinations = getCombinations([], smallerNums, currentNumber);
+					var combinations = getCombinations([], smallerNums);
 					
 						for(var i = 0; i < combinations.length; i++){
 							if(sumOf(combinations[i]) == currentNumber){
