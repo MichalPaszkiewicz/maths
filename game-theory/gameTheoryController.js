@@ -1,7 +1,7 @@
 var gameModule = angular.module('app', []).
 	controller("gameTheoryControl", function gameTheoryControl($scope){
 	    	
-	    	function number(num){
+	    	function number(num){ 
 	    		this.name = num; 
 	    		this.selected = false;
 	    		return this;
