@@ -56,13 +56,30 @@ var gameModule = angular.module('app', []).
 			return newArray;
 		}
 		
-		var getCombinations = function(firstParts, parts, solutions) {
+		var getCombinations2 = function(firstParts, parts, solutions) {
 			var results = [];
 		    	for (var i = 0; i < parts.length; i++) {
 			      solutions.push(firstParts.concat(parts[i]));
 			      solutions.concat(getCombinations(firstParts.concat(parts[i]), parts.splice(i + 1)), solutions);
 		    	}
 		   return solutions;
+		}
+		
+		var getCombinations = function(startArray, arrayOfNumbers){
+			var results = [];
+			for(var i = 0; i < arrayOfNumbers.length; i++){
+				results.push(startArray.concat(arrayOfNumbers[i]));
+
+				var tempArray = [];
+				for(var j = 0; j < arrayOfNumbers.length; j++){
+					if(i != j){
+						tempArray.push(arrayOfNumbers[j]);
+					}
+				}
+				
+				results.concat(getCombinations(arrayOfNumbers[i], tempArray));
+			}
+			return results;
 		}
 		
 		$scope.getSolutions = function(){
@@ -81,7 +98,7 @@ var gameModule = angular.module('app', []).
 					calculable = false; break;
 				}
 				
-				var combinations = getCombinations([], smallerNums, []);
+				var combinations = getCombinations([], smallerNums);
 				
 					for(var i = 0; i < combinations.length; i++){
 						if(sumOf(combinations[i]) == currentNumber){
