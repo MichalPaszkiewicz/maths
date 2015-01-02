@@ -59,6 +59,7 @@
       </style>
       
       <h3>Game</h3>
+      <button ng-click="getSolutions()">Get solutions</button>
       <div style="clear:both">
         <div class="solution-box" ng-repeat="solution in solutions"><span ng-repeat="num in solution.parts" ng-switch="$last">{{num}} <span ng-switch-when="false">+</span> </span> = {{solution.number}}</div>
       </div>
