@@ -47,6 +47,14 @@ var gameModule = angular.module('app', []).
 			}
 		}
 		
+		function sumNumbers(numbers){
+			var num = 0;
+			for(var i = 0; i < numbers.length; i++){
+				num += parseInt(numbers.name);
+			}
+			return num;
+		}
+		
 		function sumOf(parts){
 			var num = 0;
 			for(var i = 0; i < parts.length; i++){
@@ -110,7 +118,7 @@ var gameModule = angular.module('app', []).
 			var calculable = true;
 			var currentNumber = 1;
 			
-			while(calculable && currentNumber <= sumOf($scope.numbers)){
+			while(calculable && currentNumber <= sumNumbers($scope.numbers)){
 				parts = [];
 				
 				var solved = false;
