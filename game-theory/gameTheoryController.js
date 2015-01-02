@@ -112,8 +112,10 @@ var gameModule = angular.module('app', []).
 				
 				for(var i = 0; i < $scope.numbers.length; i++){
 					if($scope.numbers[i].name == currentNumber)
-					solved = true;
-					$scope.solutions.push(new solution(currentNumber, [$scope.numbers[i].name]));
+					{
+						solved = true;
+						$scope.solutions.push(new solution(currentNumber, [$scope.numbers[i].name]));
+					}
 				}
 				
 				if(!solved){
