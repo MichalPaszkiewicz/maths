@@ -84,14 +84,15 @@ var gameModule = angular.module('app', []).
 					calculable = false; break;
 				}
 				
-				var combinations = getCombinations(smallerNums){
+				var combinations = getCombinations(smallerNums);
+				
 					for(var i = 0; i < combinations.length; i++){
 						if(sumOf(parts) == currentNumber){
 							$scope.solutions.push(new solution(currentNumber, parts));
 							solved = true;
 						}
 					}
-				}
+				
 				
 				if(!solved){
 					calculable = false; break;
