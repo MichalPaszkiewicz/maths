@@ -3,10 +3,11 @@ var gameModule = angular.module('app', []).
 	    	
 	    	function number(num){
 	    		this.name = num; 
+	    		this.selected = false;
 	    		return this;
 	    	}
 	    	
-	    	$scope.numbers=[{name: 1},{name: 2}, {name: 3}];
+	    	$scope.numbers=[];
 	    	
 	    	$scope.amount = 10;
 	    	
@@ -17,6 +18,14 @@ var gameModule = angular.module('app', []).
 			
 			for(var i = 1; i < intAmount + 1; i++){
 				$scope.numbers.push(new number(i));
+			}
+		}
+
+		$scope.deleteSelected = function(){
+			for(var num in $scope.numbers){
+				if(num.selected){
+					$scope.numbers().splice($scope.numbers.indexOf(num), 1);
+				}
 			}
 		}
 		
