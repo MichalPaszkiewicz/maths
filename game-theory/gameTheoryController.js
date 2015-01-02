@@ -57,9 +57,10 @@ var gameModule = angular.module('app', []).
 		}
 		
 		var getCombinations = function(firstParts, parts, solutions) {
+			var results = [];
 		    	for (var i = 0; i < parts.length; i++) {
 			      solutions.push(firstParts.concat(parts[i]));
-			      solutions.concat(getCombinations(firstParts.concat(parts[i]), parts.splice(i + 1)));
+			      solutions.concat(getCombinations(firstParts.concat(parts[i]), parts.splice(i + 1)), solutions);
 		    	}
 		   return solutions;
 		}
