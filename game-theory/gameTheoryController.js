@@ -84,7 +84,7 @@ var gameModule = angular.module('app', []).
 
 				var tempArray = [];
 				for(var j = 0; j < arrayOfNumbers.length; j++){
-					if(i != j){
+					if(j > i){
 						tempArray.push(arrayOfNumbers[j]);
 					}
 				}
