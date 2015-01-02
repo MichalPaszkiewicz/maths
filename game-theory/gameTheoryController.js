@@ -60,8 +60,11 @@ var gameModule = angular.module('app', []).
 		  var result = [];
 		  var f = function(firstParts, parts) {
 		    for (var i = 0; i < parts.length; i++) {
+		    	
 		      result.push(firstParts.concat(parts[i]));
+		      console.log(parts[i+1]);
 		      f(firstParts.concat(parts[i]), parts.splice(i + 1));
+		      
 		    }
 		  }
 		  f([], parts);
