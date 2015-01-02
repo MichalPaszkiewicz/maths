@@ -23,7 +23,7 @@ var gameModule = angular.module('app', []).
 
 		$scope.deleteSelected = function(){
 			for(var num in $scope.numbers){
-				if(num.selected){
+				if($scope.numbers[num].selected){
 					$scope.numbers().splice($scope.numbers.indexOf(num), 1);
 				}
 			}
