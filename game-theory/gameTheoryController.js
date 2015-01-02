@@ -87,8 +87,8 @@ var gameModule = angular.module('app', []).
 				var combinations = getCombinations(smallerNums);
 				
 					for(var i = 0; i < combinations.length; i++){
-						if(sumOf(parts) == currentNumber){
-							$scope.solutions.push(new solution(currentNumber, parts));
+						if(sumOf(combinations[i]) == currentNumber){
+							$scope.solutions.push(new solution(currentNumber, combinations[i]));
 							solved = true;
 						}
 					}
