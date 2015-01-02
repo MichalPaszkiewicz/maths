@@ -68,22 +68,13 @@ var gameModule = angular.module('app', []).
 			return newArray;
 		}
 		
-		var getCombinations2 = function(firstParts, parts, solutions) {
-			var results = [];
-		    	for (var i = 0; i < parts.length; i++) {
-			      solutions.push(firstParts.concat(parts[i]));
-			      solutions.concat(getCombinations(firstParts.concat(parts[i]), parts.splice(i + 1)), solutions);
-		    	}
-		   return solutions;
-		}
-		
 		var getCombinations = function(startArray, arrayOfNumbers){
 			var results = [];
 			for(var i = 0; i < arrayOfNumbers.length; i++){
 				results.push(startArray.concat(arrayOfNumbers[i]));
 
 				var tempArray = [];
-				for(var j = i + 1; j arrayOfNumbers.length; j++){
+				for(var j = i + 1; j < arrayOfNumbers.length; j++){
 					//if(j > i){
 						tempArray.push(arrayOfNumbers[j]);
 					//}
