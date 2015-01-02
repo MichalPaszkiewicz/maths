@@ -39,7 +39,11 @@
     
       <h3>List</h3>
       <div style="clear:both">
-      <div class="" ng-repeat="number in numbers">{{number.name}}</div>
+      <div class="number-box" ng-repeat="number in numbers">{{number.name}}</div>
+      
+      <style>
+        .number-box{min-width: 30px; display:inline-block;}
+      </style>
       </div>
     </div>
 
