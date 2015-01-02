@@ -68,16 +68,29 @@ var gameModule = angular.module('app', []).
 			return newArray;
 		}
 		
-		var getCombinations = function(startArray, arrayOfNumbers){
+		var getCombinationsOLD = function(startArray, arrayOfNumbers){
 			var results = [];
 			for(var i = 0; i < arrayOfNumbers.length; i++){
 				results.push(startArray.concat(arrayOfNumbers[i]));
 
 				var tempArray = [];
 				for(var j = i + 1; j < arrayOfNumbers.length; j++){
-					//if(j > i){
-						tempArray.push(arrayOfNumbers[j]);
-					//}
+					tempArray.push(arrayOfNumbers[j]);
+				}
+				
+				results = results.concat(getCombinations(startArray.concat(arrayOfNumbers[i]), tempArray));
+			}
+			return results;
+		}
+		
+		var getCombinations = function(startArray, arrayOfNumbers){
+			var results = [];
+			for(var i = arrayOfNumbers.length - 1; i > -1; i--){
+				results.push(startArray.concat(arrayOfNumbers[i]));
+
+				var tempArray = [];
+				for(var j = 0; j < i; j++){
+					tempArray.push(arrayOfNumbers[j]);
 				}
 				
 				results = results.concat(getCombinations(startArray.concat(arrayOfNumbers[i]), tempArray));
@@ -112,7 +125,7 @@ var gameModule = angular.module('app', []).
 				if(!solved){
 					var combinations = getCombinations([], smallerNums);
 					
-						for(var i = combinations.length - 1; i > -1; i--){
+						for(var i = 0; i < combinations.length; i++){
 							if(sumOf(combinations[i]) == currentNumber){
 								$scope.solutions.push(new solution(currentNumber, combinations[i]));
 								solved = true;
