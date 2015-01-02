@@ -15,7 +15,7 @@ var gameModule = angular.module('app', []).
 			
 			intAmount = parseInt($scope.amount);
 			
-			for(var i = 0; i < intAmount; i++){
+			for(var i = 1; i < intAmount + 1; i++){
 				$scope.numbers.push(new number(i));
 			}
 		}
