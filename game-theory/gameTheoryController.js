@@ -104,7 +104,9 @@ var gameModule = angular.module('app', []).
 						if(sumOf(combinations[i]) == currentNumber){
 							$scope.solutions.push(new solution(currentNumber, combinations[i]));
 							solved = true;
+							break;
 						}
+						if(solved){break;}
 					}
 				
 				
