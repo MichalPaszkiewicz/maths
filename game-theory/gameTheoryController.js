@@ -112,7 +112,7 @@ var gameModule = angular.module('app', []).
 				if(!solved){
 					var combinations = getCombinations([], smallerNums);
 					
-						for(var i = 0; i < combinations.length; i++){
+						for(var i = combinations.length - 1; i > -1; i--){
 							if(sumOf(combinations[i]) == currentNumber){
 								$scope.solutions.push(new solution(currentNumber, combinations[i]));
 								solved = true;
