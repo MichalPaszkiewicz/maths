@@ -77,7 +77,7 @@ var gameModule = angular.module('app', []).
 					}
 				}
 				
-				results.concat(getCombinations(startArray.concat(arrayOfNumbers[i]), tempArray));
+				results = results.concat(getCombinations(startArray.concat(arrayOfNumbers[i]), tempArray));
 			}
 			return results;
 		}
