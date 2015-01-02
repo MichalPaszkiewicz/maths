@@ -26,7 +26,7 @@ var gameModule = angular.module('app', []).
 	    		this.parts = parts;
 	    	}
 	    	
-	    	$scope.amount = 10;
+	    	$scope.amount = 5;
 	    	
 	    	$scope.newNumbers = function(){
 			$scope.numbers = [];
