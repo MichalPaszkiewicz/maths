@@ -79,12 +79,14 @@ var gameModule = angular.module('app', []).
 		
 		var getCombinations = function(startArray, arrayOfNumbers){
 			var results = [];
-			for(var i = arrayOfNumbers.length; i > -1; i--){
+			for(var i = 0; i < arrayOfNumbers.length; i++){
 				results.push(startArray.concat(arrayOfNumbers[i]));
 
 				var tempArray = [];
-				for(var j = 0; j < i; j++){
-					tempArray.push(arrayOfNumbers[j]);
+				for(var j = i + 1; j arrayOfNumbers.length; j++){
+					//if(j > i){
+						tempArray.push(arrayOfNumbers[j]);
+					//}
 				}
 				
 				results = results.concat(getCombinations(startArray.concat(arrayOfNumbers[i]), tempArray));
