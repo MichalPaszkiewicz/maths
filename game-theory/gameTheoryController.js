@@ -110,20 +110,28 @@ var gameModule = angular.module('app', []).
 					calculable = false; break;
 				}
 				
-				var combinations = getCombinations([], smallerNums);
-				
-					for(var i = 0; i < combinations.length; i++){
-						if(sumOf(combinations[i]) == currentNumber){
-							$scope.solutions.push(new solution(currentNumber, combinations[i]));
-							solved = true;
-							break;
-						}
-						if(solved){break;}
-					}
-				
+				for(var i = 0; i < $scope.numbers.length; i++){
+					if($scope.numbers[i].name == currentNumber)
+					solved = true;
+					$scope.solutions.push(new solution(currentNumber, [$scope.numbers[i].name]));
+				}
 				
 				if(!solved){
-					calculable = false; break;
+					var combinations = getCombinations([], smallerNums);
+					
+						for(var i = 0; i < combinations.length; i++){
+							if(sumOf(combinations[i]) == currentNumber){
+								$scope.solutions.push(new solution(currentNumber, combinations[i]));
+								solved = true;
+								break;
+							}
+							if(solved){break;}
+						}
+					
+					
+					if(!solved){
+						calculable = false; break;
+					}
 				}
 				
 				currentNumber++;
