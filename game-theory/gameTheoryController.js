@@ -68,7 +68,7 @@ var gameModule = angular.module('app', []).
 		  return result;
 		}
 		
-		$scope.getSolutions(){
+		$scope.getSolutions = functions(){
 			$scope.solutions = [];
 			var calculable = true;
 			var currentNumber = 1;
