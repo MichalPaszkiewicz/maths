@@ -42,6 +42,7 @@ var gameModule = angular.module('app', []).
 			for(var num in $scope.numbers){
 				if($scope.numbers[num].selected){
 					$scope.numbers.splice(num, 1);
+					num--;
 				}
 			}
 		}
