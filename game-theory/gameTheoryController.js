@@ -19,5 +19,7 @@ var gameModule = angular.module('app', []).
 				$scope.numbers.push(new number(i));
 			}
 		}
+		
+		$scope.newNumbers();
 	
 	});
