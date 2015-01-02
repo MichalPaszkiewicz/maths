@@ -110,7 +110,7 @@ var gameModule = angular.module('app', []).
 			var calculable = true;
 			var currentNumber = 1;
 			
-			while(calculable){
+			while(calculable && currentNumber <= sumOf($scope.numbers)){
 				parts = [];
 				
 				var solved = false;
