@@ -68,7 +68,7 @@ var gameModule = angular.module('app', []).
 			return newArray;
 		}
 		
-		var getCombinations = function(startArray, arrayOfNumbers){
+		/*var getCombinations = function(startArray, arrayOfNumbers){
 			var results = [];
 			for(var i = 0; i < arrayOfNumbers.length; i++){
 				results.push(startArray.concat(arrayOfNumbers[i]));
@@ -81,14 +81,14 @@ var gameModule = angular.module('app', []).
 				results = results.concat(getCombinations(startArray.concat(arrayOfNumbers[i]), tempArray));
 			}
 			return results;
-		}
+		}*/
 		
-		var getCombinationsNotSoGood = function(startArray, arrayOfNumbers, expected){
+		var getResult = function(startArray, arrayOfNumbers, expected){
 			var results = [];
 			for(var i = arrayOfNumbers.length - 1; i > -1; i--){
 				results.push(startArray.concat(arrayOfNumbers[i]));
 				if(sumOf(startArray.concat(arrayOfNumbers[i]))==expected){
-					return results;
+					return {result: true, values: startArray.concat(arrayOfNumbers[i])};
 				}
 
 				var tempArray = [];
@@ -96,7 +96,11 @@ var gameModule = angular.module('app', []).
 					tempArray.push(arrayOfNumbers[j]);
 				}
 				
-				results = results.concat(getCombinations(startArray.concat(arrayOfNumbers[i]), tempArray));
+				var newCombinations = getResult(startArray.concat(arrayOfNumbers[i]), tempArray, expected);
+				if(newCombinations.result = true){return newCombinations;}
+				else{
+					results = results.concat(newCombinations);
+				}
 			}
 			return results;
 		}
@@ -126,6 +130,16 @@ var gameModule = angular.module('app', []).
 				}
 				
 				if(!solved){
+					var returnses = getResult([], smallerNums, currentNumber);
+					if(returnses.result == true){
+						solved = true;
+					}
+					else{
+						calculable = false; break;
+					}
+				}
+				
+				/*if(!solved){
 					var combinations = getCombinations([], smallerNums);
 					
 						for(var i = 0; i < combinations.length; i++){
@@ -141,7 +155,7 @@ var gameModule = angular.module('app', []).
 					if(!solved){
 						calculable = false; break;
 					}
-				}
+				}*/
 				
 				currentNumber++;
 			}
