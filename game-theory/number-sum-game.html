@@ -28,6 +28,14 @@
 
   <div id="panel2" class="panel">
     <div class="panel-box">
+    
+      <div>
+        <h3>New numbers</h3>
+        <input type="number" ng-model="amount" min=1 max=1000 step=1>
+        <button ng-click="newNumbers()">Generate</button>
+      </div>
+    
+      <h3>List</h3>
       <div class="" ng-repeat="number in numbers">{{number.name}}</div>
       
     </div>
