@@ -36,8 +36,18 @@
         <button ng-click="newNumbers()">Generate</button>
         </div>
       </div>
+      
+      <p>Taken from <a class="inline-link" href="http://math.stackexchange.com/questions/1088321/alice-and-bob-number-sum-game?noredirect=1#comment2217182_1088321">Math Overflow</a></p>
+      
+      <p>Alice and Bob play a game with first N positive numbers. Out of these N integers some K integers are missing. So both decided to play with remaining N−K integers and in this game Alice wants Bob to win the game.</p>
+
+<p>Game is as follow :</p>
+
+<p><strong>In Xth move, a player can choose some numbers out of all the numbers available such that chosen numbers sum upto X. After the move, chosen numbers are placed back on the table. The player who is not able to make a move loses.</strong></p>
+
+<p>Given that both players play optimally and Alice decides who should go first we need to find who should take the first turn so that Bob wins the game.</p>
     
-      <h3>List</h3>
+      <h3>List of numbers</h3>
       <div style="clear:both">
       <div class="number-box" ng-class="{'selected-number': number.selected}" ng-repeat="number in numbers" ng-click="number.selected = !number.selected">{{number.name}}</div>
       
@@ -46,6 +56,12 @@
         .number-box{cursor: pointer; min-width: 30px; display:inline-block; text-align:center;}
         .selected-number{background:yellow};
       </style>
+      
+      <h3>Game</h3>
+      <div style="clear:both">
+        <div class="solution-box" ng-repeat="solution in solutions"><span ng-repeat="num in solution.parts" ng-switch="$last">{{num}} <span ng-switch-when="false">+</span> </span> = {{solution.number}}</div>
+      </div>
+      
       </div>
     </div>
 
