@@ -39,10 +39,12 @@
     
       <h3>List</h3>
       <div style="clear:both">
-      <div class="number-box" ng-repeat="number in numbers">{{number.name}}</div>
+      <div class="number-box" ng-class="{'selected-number': number.selected}" ng-repeat="number in numbers" ng-click="number.selected = !number.selected">{{number.name}}</div>
       
+      <button style="clear:both" ng-click="deleteSelected()">Delete selection</button>
       <style>
         .number-box{min-width: 30px; display:inline-block;}
+        .selected-number{background:yellow};
       </style>
       </div>
     </div>
