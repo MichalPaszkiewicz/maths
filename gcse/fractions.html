@@ -22,8 +22,65 @@
   <h1>Algebra and fractions</h1>
   
   <h3>1. Multiply out and simplify the following: \( (a + b)(a - b)  \)</h3> <i>Worth: half a chocolate.</i>
-  <h3>2. Simplify the following: \( \frac{1}{(x + 7)} + \frac{1}{(x - 7)} \)</h3> <i>Worth: half a chocolate</i>
-  <h3>3. Simplify the following: \( \frac{5}{x} + \frac{3}{(x + \frac{49}{x})} \)</h3> <i>Worth: one chocolate</i>
+  
+  <h3>2. Before western mathematics benefitted from the arrival of Arabic algebra, the majority of mathematics consisted of geometry.</h3>
+  <p>The difference of two squares is proved in Euclid's <b>Elements</b>(written in 300 B.C.) by taking two squares of side a and b, and lining up the two rectangles containing the area in a that is not contained by b, i.e. the difference of two squares. This new rectangle is of length a added to b and width b subtracted from a.</p>
+  
+  <canvas id="myCanvas" width="300" height="200">
+Your browser does not support the HTML5 canvas tag.
+</canvas>
+
+<script>
+var c = document.getElementById("myCanvas");
+var ctx = c.getContext("2d");
+ctx.rect(0,0,100,100);
+ctx.rect(0, 20, 80, 80);
+ctx.stroke();
+
+ctx.font="14px Georgia";
+ctx.fillText("b",65,65);
+
+ctx.fillText("a", 105, 50);
+
+ctx.rect(160,0, 100,100);
+ctx.rect(160, 20, 80, 80);
+ctx.stroke();
+
+ctx.moveTo(240, 20);
+ctx.lineTo(260, 20);
+ctx.stroke();
+
+ctx.fillText("rectangle x", 175, 16);
+
+ctx.moveTo(250, 80);
+ctx.lineTo(250, 110);
+ctx.stroke();
+
+ctx.fillText("rectangle y", 215, 122);
+
+ctx.rect(0, 140, 180, 20);
+ctx.stroke();
+
+ctx.moveTo(100, 140);
+ctx.lineTo(100, 160);
+ctx.stroke();
+
+ctx.fillText("b", 135, 135);
+ctx.fillText("a", 50, 135);
+
+ctx.moveTo(0, 170);
+ctx.lineTo(0, 165);
+ctx.lineTo(180, 165);
+ctx.lineTo(180, 170);
+ctx.stroke();
+
+ctx.fillText("a + b", 80, 180);
+ctx.fillText("a - b", 185, 153);
+
+</script>
+  
+  <h3>3. Simplify the following: \( \frac{1}{(x + 7)} + \frac{1}{(x - 7)} \)</h3> <i>Worth: half a chocolate</i>
+  <h3>4. Simplify the following: \( \frac{5}{x} + \frac{3}{(x + \frac{49}{x})} \)</h3> <i>Worth: one chocolate</i>
 
 <style>
   h3{
