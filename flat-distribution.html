@@ -1,0 +1,130 @@
+<html>
+  <head>
+	<title>Flat distribution</title>
+	<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-52254492-1', 'michalpaszkiewicz.co.uk');
+  ga('send', 'pageview');
+</script>
+	</head>
+<body>
+	<h1>Distribution test : 50 days and 500,000 runs</h1>
+	<h2>Old distribution ( 1/(numberOfDays) ):</h2>
+	<div id="old"></div>
+	<canvas id="oldCanvas"></canvas>
+	<h2>New distribution ( 1/(numberOfDays - dayNumber) ):</h2>
+	<div id="new"></div>
+	<div>
+		<canvas id="newCanvas"></canvas>
+	</div>
+	
+	<style>
+		html, body{
+			width: 100%;
+			margin: 0;
+			padding: 0;
+		}
+	</style>
+	
+	<script>
+		var probabilities = [];
+		var oldProbabilities = [];
+		
+		var old = document.getElementById("old");
+		var newTest = document.getElementById("new");
+		
+		var oldCanvas = document.getElementById("oldCanvas");
+		var newCanvas = document.getElementById("newCanvas");
+		
+		var oldCtx = oldCanvas.getContext("2d");
+		var newCtx = newCanvas.getContext("2d");
+		
+		function getMax(score){
+			var max = 0;
+			for(var i = 0; i < score.length; i++){
+				if(score[i] > max){
+					max = score[i];
+				}
+			}
+			return max;
+		}
+		
+		function drawOnCtx(cvs, ctx, score){
+			cvs.width = cvs.parentElement.offsetWidth - 80;
+			cvs.height = 300;
+			
+			ctx.clearRect(0,0,cvs.width, cvs.height);
+			
+			ctx.strokeStyle="red";
+			
+			var maxVal = getMax(score);
+			
+			var squareWidth = cvs.width / score.length - 2;
+			
+			for(var i = 0; i < score.length; i++){
+				ctx.beginPath();
+				ctx.fillStyle="rgba(255,0,0,0.2)";
+				ctx.rect(1 + i * squareWidth + 2 * i, cvs.height - cvs.height * score[i] / maxVal ,squareWidth, cvs.height * score[i] / maxVal);
+				ctx.fill();
+				ctx.stroke();
+				
+				ctx.fillStyle="black";
+				ctx.textAlign="center"; 
+				ctx.fillText(i,1 + i * squareWidth + 2 * i + squareWidth/2, cvs.height - 20);
+				ctx.fillText(score[i],1 + i * squareWidth + 2 * i + squareWidth/2, cvs.height - 10);
+			}			
+		}
+
+		function setProbabilities(n){
+			probabilities = [];
+			oldProbabilities = [];
+			
+			for(var i = n; i > 0; i--){
+				probabilities.push(1/i);
+				oldProbabilities.push(2/n);
+			}
+		}
+
+		function getRandom(array){
+			for(var i = 0; i < array.length; i++){
+				if(Math.random() < array[i]){
+					return i;
+				}
+			}
+		}
+
+		function getRandoms(n, array){
+			var score = [];
+			for(var i = 0; i < array.length; i++){
+				score.push(0);
+			}
+
+			for(var i = 0; i < n; i++){
+				score[getRandom(array)]++;
+			}
+
+			return score;
+		}
+
+		function runTest(numberOfSteps, numberOfRuns){		
+			setProbabilities(numberOfSteps);
+			
+			var oldResult = getRandoms(numberOfRuns, oldProbabilities);
+			
+			//old.textContent="[" + oldResult.toString() + "]";
+			drawOnCtx(oldCanvas, oldCtx, oldResult);		
+			
+			var newResult = getRandoms(numberOfRuns, probabilities);
+			
+			//newTest.textContent="[" + newResult.toString() + "]";
+			drawOnCtx(newCanvas, newCtx, newResult);
+		}
+		
+	</script>
+	
+	<button onclick="runTest(50,500000)">Run Test</button>
+</body>
+</html>
