@@ -12,15 +12,13 @@
 	</head>
 <body>
 	<h1>Distribution test : 50 days and 500,000 runs</h1>
-	<h2>Old distribution ( 1/(numberOfDays) ):</h2>
-	<div id="old"></div>
+	<h2>( 1/(numberOfDays) ):</h2>
 	<canvas id="oldCanvas"></canvas>
+	<h2>Old distribution:</h2>
+	<canvas id="midCanvas"></canvas>
 	<h2>New distribution ( 1/(numberOfDays - dayNumber) ):</h2>
-	<div id="new"></div>
-	<div>
-		<canvas id="newCanvas"></canvas>
-	</div>
-	
+	<canvas id="newCanvas"></canvas>
+
 	<style>
 		html, body{
 			width: 100%;
@@ -32,14 +30,14 @@
 	<script>
 		var probabilities = [];
 		var oldProbabilities = [];
-		
-		var old = document.getElementById("old");
-		var newTest = document.getElementById("new");
+		var midProbabilities = [];
 		
 		var oldCanvas = document.getElementById("oldCanvas");
+		var midCanvas = document.getElementById("midCanvas");
 		var newCanvas = document.getElementById("newCanvas");
 		
 		var oldCtx = oldCanvas.getContext("2d");
+		var midCtx = midCanvas.getContext("2d");
 		var newCtx = newCanvas.getContext("2d");
 		
 		function getMax(score){
@@ -85,6 +83,7 @@
 			for(var i = n; i > 0; i--){
 				probabilities.push(1/i);
 				oldProbabilities.push(2/n);
+				midProbabilities.push( (n - i) / n );
 			}
 		}
 
@@ -121,10 +120,15 @@
 			
 			//newTest.textContent="[" + newResult.toString() + "]";
 			drawOnCtx(newCanvas, newCtx, newResult);
+			
+			var midResult = getRandoms(numberOfRuns, midProbabilities);
+			
+			drawOnCtx(midCanvas, midCtx, midResult);
 		}
 		
 	</script>
-	
+		<div>
 	<button onclick="runTest(50,500000)">Run Test</button>
+	</div>
 </body>
 </html>
