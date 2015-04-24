@@ -13,13 +13,15 @@
 <body>
 	<h1>Distribution test : 50 days and 500,000 runs</h1>
 	<h3>The problem: A function is to be run every (day) between two dates, deciding whether an action stops on that day. The probability of the action stopping on any day should be as similar to that of any of the others as possible.</h3>
-	<h2>This doesn't work: ( 1/(numberOfDays) )</h2>
-	<canvas id="oldCanvas"></canvas>
-	<h2>This distribution is even less flat: ( dayNumber / numberOfDays )</h2>
-	<canvas id="midCanvas"></canvas>
-	<h2>This is the way to do it: ( 1/(numberOfDays - dayNumber) )</h2>
-	<canvas id="newCanvas"></canvas>
-
+	<div id="lol" class="hidden">
+		<h2>This doesn't work: ( 1/(numberOfDays) )</h2>
+		<canvas id="oldCanvas"></canvas>
+		<h2>This distribution is even less flat: ( dayNumber / numberOfDays )</h2>
+		<canvas id="midCanvas"></canvas>
+		<h2>This is the way to do it: ( 1/(numberOfDays - dayNumber) )</h2>
+		<canvas id="newCanvas"></canvas>
+	</div>
+	
 	<style>
 		html, body{
 			width: 100%;
@@ -29,6 +31,17 @@
 		
 		h1, h2, h3{
 			text-align: center;
+		}
+		
+		button{
+			margin: auto;
+			width: 200px;
+			display: block;
+			font-size: 30px;
+		}
+		
+		.hidden{
+			display: none;
 		}
 	</style>
 	
@@ -114,7 +127,11 @@
 			return score;
 		}
 
-		function runTest(numberOfSteps, numberOfRuns){		
+		function runTest(numberOfSteps, numberOfRuns){	
+			var lol = document.getElementById("lol");
+			
+			lol.className = ""
+			
 			setProbabilities(numberOfSteps);
 			
 			var oldResult = getRandoms(numberOfRuns, oldProbabilities);
